@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>即時棒球比分</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="score-card">
+            <div class="header">
+                <div class="game-info">
+                    <div class="game-status-group">
+                        <span class="live-indicator">LIVE</span>
+                        <span class="game-time"></span>
+                        <span class="game-event">觸身球</span>
+                    </div>
+                    <div class="stadium-info">
+                        <div class="tournament-name">世界棒球經典賽 資格賽 2025</div>
+                        <div class="stadium-group">
+                            <span class="stadium-icon">🏟️</span>
+                            <span class="stadium">台北大巨蛋</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-content">
+                <div class="left-section">
+                    <div class="team-section away">
+                        <div class="team-header">
+                            <div class="team-logo-container">
+                                <img src="https://seeklogo.com/images/C/china-taipei-logo-00AD5F8959-seeklogo.com.png" 
+                                     alt="台灣隊隊徽" 
+                                     class="team-logo">
+                            </div>
+                            <h2 class="team-name">台灣</h2>
+                        </div>
+                        <div class="score-container">
+                            <div class="score">0</div>
+                            <div class="stats-container">
+                                <div class="hits-errors">
+                                    <span>安打: <span class="hits-value">0</span></span>
+                                    <span>失誤: <span class="errors-value">0</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="center-section">
+                    <div class="vs-container">
+                        <div class="vs-line"></div>
+                        <span class="vs">VS</span>
+                        <div class="vs-line"></div>
+                    </div>
+                    
+                    <div class="inning-display">
+                        <div class="current-inning">第 1 局</div>
+                        <div class="inning-half">上半</div>
+                    </div>
+
+                    <div class="detailed-status">
+                        <div class="field-status">
+                            <div class="bases-container">
+                                <div class="diamond">
+                                    <div class="base first">
+                                        <div class="base-shape"></div>
+                                        <div class="glow"></div>
+                                    </div>
+                                    <div class="base second">
+                                        <div class="base-shape"></div>
+                                        <div class="glow"></div>
+                                    </div>
+                                    <div class="base third">
+                                        <div class="base-shape"></div>
+                                        <div class="glow"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="count-container">
+                                <div class="count-row count-b">
+                                    <span class="count-label">壞球</span>
+                                    <div class="count-dots">
+                                        <span class="dot"><div class="glow"></div></span>
+                                        <span class="dot"><div class="glow"></div></span>
+                                        <span class="dot"><div class="glow"></div></span>
+                                    </div>
+                                </div>
+                                <div class="count-row count-s">
+                                    <span class="count-label">好球</span>
+                                    <div class="count-dots">
+                                        <span class="dot"><div class="glow"></div></span>
+                                        <span class="dot"><div class="glow"></div></span>
+                                    </div>
+                                </div>
+                                <div class="count-row count-o">
+                                    <span class="count-label">出局</span>
+                                    <div class="count-dots">
+                                        <span class="dot"><div class="glow"></div></span>
+                                        <span class="dot"><div class="glow"></div></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="player-info">
+                            <div class="player-card pitcher">
+                                <div class="player-header">目前投手</div>
+                                <div class="pitcher-info">
+                                    <div class="name"></div>
+                                    <div class="stats">
+                                        <div class="main-stats">
+                                            <span class="era">ERA: 0.00</span>
+                                            <span class="record">勝: 0 敗: 0</span>
+                                        </div>
+                                        <div class="today-stats">
+                                            <span class="ip">局數: 0.0</span>
+                                            <span class="k-bb">K: 0 BB: 0</span>
+                                            <span class="pitch-count">投球數: 0 (好球: 0)</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="player-card batter">
+                                <div class="player-header">打擊者</div>
+                                <div class="batter-info">
+                                    <div class="name"></div>
+                                    <div class="stats">
+                                        <div class="main-stats">
+                                            <span class="avg">打擊率: .000</span>
+                                            <span class="hr-rbi">全壘打: 0 打點: 0</span>
+                                        </div>
+                                        <div class="vs-pitcher">對戰投手: .000 (0-0)</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="right-section">
+                    <div class="team-section home">
+                        <div class="team-header">
+                            <div class="team-logo-container">
+                                <img src="https://content.sportslogos.net/logos/67/1821/full/7s6qfu7vkgzxcm3b0ahv.gif" 
+                                     alt="南非隊隊徽" 
+                                     class="team-logo">
+                            </div>
+                            <h2 class="team-name">南非</h2>
+                        </div>
+                        <div class="score-container">
+                            <div class="score">0</div>
+                            <div class="stats-container">
+                                <div class="hits-errors">
+                                    <span>安打: <span class="hits-value">0</span></span>
+                                    <span>失誤: <span class="errors-value">0</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="next-batters">
+                        <div class="next-batters-header">接下來打序</div>
+                        <div class="on-deck">
+                            <span class="label">下一棒:</span>
+                            <span class="name"></span>
+                            <span class="avg"></span>
+                        </div>
+                        <div class="in-hole">
+                            <span class="label">第三棒:</span>
+                            <span class="name"></span>
+                            <span class="avg"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 添加底部製作者資訊 -->
+            <div class="credits">
+                <span>資料來源:</span>
+                <a href="https://www.worldbaseballclassic.com" target="_blank">WBC 官網</a>
+                <span>By</span>
+                <a href="https://github.com/X-Flight-Together" target="_blank">RealTech Ltd.</a>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>即時棒球比分 - 手機版</title>
+    <link rel="stylesheet" href="mobile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="score-card">
+            <!-- 頂部資訊 -->
+            <div class="header">
+                <div class="tournament-info">世界棒球經典賽 資格賽 2025</div>
+                <div class="stadium-info">
+                    <span class="stadium-icon">🏟️</span>
+                    <span class="stadium">台北大巨蛋</span>
+                </div>
+            </div>
+
+            <!-- 比分區域 -->
+            <div class="score-section">
+                <div class="team away">
+                    <img src="https://seeklogo.com/images/C/china-taipei-logo-00AD5F8959-seeklogo.com.png" 
+                         alt="台灣隊隊徽" 
+                         class="team-logo">
+                    <div class="team-info">
+                        <div class="team-name">台灣</div>
+                        <div class="team-stats">
+                            <span class="hits">安打: 0</span>
+                            <span class="errors">失誤: 0</span>
+                        </div>
+                    </div>
+                    <div class="score">0</div>
+                </div>
+
+                <div class="game-status">
+                    <div class="inning">
+                        <span class="current">1</span>
+                        <span class="half">上</span>
+                    </div>
+                </div>
+
+                <div class="team home">
+                    <img src="https://content.sportslogos.net/logos/67/1821/full/7s6qfu7vkgzxcm3b0ahv.gif" 
+                         alt="南非隊隊徽" 
+                         class="team-logo">
+                    <div class="team-info">
+                        <div class="team-name">南非</div>
+                        <div class="team-stats">
+                            <span class="hits">安打: 0</span>
+                            <span class="errors">失誤: 0</span>
+                        </div>
+                    </div>
+                    <div class="score">0</div>
+                </div>
+            </div>
+
+            <!-- 比賽狀態 -->
+            <div class="game-status-section">
+                <div class="count-container">
+                    <div class="count-row">
+                        <div class="count balls">
+                            <span class="label">B</span>
+                            <div class="dots">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div>
+                        <div class="count strikes">
+                            <span class="label">S</span>
+                            <div class="dots">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div>
+                        <div class="count outs">
+                            <span class="label">O</span>
+                            <div class="dots">
+                                <span class="dot"></span>
+                                <span class="dot"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bases-container">
+                    <div class="diamond">
+                        <div class="base first"></div>
+                        <div class="base second"></div>
+                        <div class="base third"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 投打資訊 -->
+            <div class="player-section">
+                <div class="pitcher">
+                    <div class="label">投手</div>
+                    <div class="name">沙子宸</div>
+                    <div class="stats">
+                        <span>ERA 0.00</span>
+                        <span>IP 2.1</span>
+                        <span>K 1</span>
+                    </div>
+                </div>
+
+                <div class="batter">
+                    <div class="label">打者</div>
+                    <div class="name">林佳緯</div>
+                    <div class="stats">
+                        <span>打擊率 .200</span>
+                        <span>今日 1-0</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 事件顯示 -->
+            <div class="event-display">觸身球</div>
+
+            <!-- 製作者資訊 -->
+            <div class="credits">
+                <span>資料來源: WBC 官網</span>
+                <span>By RealTech Ltd.</span>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 

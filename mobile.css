@@ -1,0 +1,303 @@
+:root {
+    --primary-color: #0078d4;
+    --background-color: #1f1f1f;
+    --card-background: rgba(32, 32, 32, 0.85);
+    --text-color: #ffffff;
+    --accent-color: #60cdff;
+    --strike-color: #ffd700;
+    --border-radius: 16px;
+    --small-radius: 8px;
+    --glow-color: rgba(96, 205, 255, 0.2);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', 'Noto Sans TC', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    min-height: 100vh;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.score-card {
+    background: var(--card-background);
+    border-radius: var(--border-radius);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+/* 頂部資訊 */
+.header {
+    text-align: center;
+}
+
+.tournament-info {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 8px;
+    background: linear-gradient(135deg, var(--accent-color), #ffffff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+}
+
+.stadium-info {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+/* 比分區域 */
+.score-section {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.team {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--small-radius);
+}
+
+.team-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+.team-info {
+    flex: 1;
+}
+
+.team-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 4px;
+    background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+}
+
+.team-stats {
+    font-size: 0.8rem;
+    opacity: 0.7;
+    display: flex;
+    gap: 10px;
+}
+
+.score {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+/* 局數顯示 */
+.game-status {
+    text-align: center;
+    padding: 8px;
+}
+
+.inning {
+    display: inline-flex;
+    gap: 5px;
+    align-items: baseline;
+}
+
+.inning .current {
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.inning .half {
+    font-size: 1rem;
+    color: var(--accent-color);
+}
+
+/* 比賽狀態區域 */
+.game-status-section {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 0;
+}
+
+/* 好壞球和出局數樣式 */
+.count-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+.count-row {
+    display: flex;
+    gap: 20px;
+}
+
+.count {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.count .label {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent-color);
+}
+
+.dots {
+    display: flex;
+    gap: 5px;
+}
+
+.dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+}
+
+.dot.active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 10px var(--glow-color);
+}
+
+/* 好球特殊樣式 */
+.strikes .dot.active {
+    background: var(--strike-color);
+    border-color: var(--strike-color);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+/* 出局數特殊樣式 */
+.outs .dot.active {
+    background: #ff4d4d;
+    border-color: #ff6666;
+    box-shadow: 0 0 10px rgba(255, 77, 77, 0.3);
+}
+
+/* 壘包區域 */
+.bases-container {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.diamond {
+    width: 60px;
+    height: 60px;
+    position: relative;
+    margin: 20px auto;
+    transform: rotate(0deg);
+}
+
+/* 手機版壘包樣式 */
+.base {
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    border-radius: 4px;
+}
+
+/* 壘包位置 */
+.base.first {
+    right: 0;
+    bottom: 0;
+    transform: none;
+}
+
+.base.second {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.base.third {
+    left: 0;
+    bottom: 0;
+    transform: none;
+}
+
+.base.active {
+    background: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+    box-shadow: 0 0 10px var(--glow-color) !important;
+}
+
+/* 投打資訊 */
+.player-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.pitcher, .batter {
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--small-radius);
+}
+
+.label {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-bottom: 5px;
+}
+
+.name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 8px;
+}
+
+.stats {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+/* 事件顯示 */
+.event-display {
+    text-align: center;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: var(--small-radius);
+    font-size: 1rem;
+    color: var(--accent-color);
+}
+
+/* 製作者資訊 */
+.credits {
+    text-align: center;
+    font-size: 0.8rem;
+    opacity: 0.6;
+    padding-top: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+} 

@@ -1,0 +1,722 @@
+:root {
+    /* Windows 11 風格的顏色系統 */
+    --primary-color: #0078d4;
+    --background-color: #1f1f1f;
+    --card-background: rgba(32, 32, 32, 0.85);
+    --text-color: #ffffff;
+    --accent-color: #60cdff;
+    --strike-color: #ffd700;
+    --border-radius: 28px;
+    --small-radius: 12px;
+    --glow-color: rgba(96, 205, 255, 0.2);
+    --secondary-bg: rgba(255, 255, 255, 0.03);
+    
+    /* Windows 11 陰影效果 */
+    --mica-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+    --hover-shadow: 0 12px 36px rgba(96, 205, 255, 0.2);
+    --card-border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', 'Noto Sans TC', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #1f1f1f 0%, #2d2d2d 100%);
+}
+
+.container {
+    width: 100vw !important;
+    height: 100vh !important;
+    padding: 0.5rem;
+    box-sizing: border-box;
+}
+
+.score-card {
+    width: 100% !important;
+    height: calc(100vh - 1rem) !important;
+    max-width: 2000px;
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0.5rem;
+    overflow: hidden;
+    position: relative;
+    gap: 0.5rem;
+    background: var(--card-background);
+}
+
+.score-card::-webkit-scrollbar {
+    width: 8px;
+}
+
+.score-card::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 4px;
+}
+
+.score-card::-webkit-scrollbar-thumb {
+    background: var(--accent-color);
+    border-radius: 4px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+}
+
+.header {
+    margin-bottom: 0.5rem;
+}
+
+.game-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.4rem 0.8rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+}
+
+.game-status-group {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.live-indicator {
+    background: linear-gradient(135deg, #ff0000, #ff4d4d);
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+}
+
+.stadium-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 0.5rem;
+}
+
+.tournament-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-shadow: 0 0 20px rgba(96, 205, 255, 0.2);
+}
+
+.stadium-group {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.stadium {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.stadium-icon {
+    font-size: 1.2rem;
+}
+
+.main-content {
+    flex: 1 !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1.2fr 1fr !important;
+    gap: 0.5rem;
+    height: calc(100% - 60px) !important;
+    min-height: 0;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.left-section, .right-section {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem;
+}
+
+.team-section {
+    flex: 0 0 auto !important;
+    padding: 0.5rem;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border-radius: var(--border-radius);
+}
+
+.team-section:hover {
+    background: rgba(255, 255, 255, 0.04);
+    transform: translateY(-4px);
+    box-shadow: var(--hover-shadow);
+}
+
+.team-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.team-logo-container {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+}
+
+.team-logo {
+    width: 100%;
+    height: 100%;
+    border-radius: 24px;
+    padding: 0.8rem;
+    background: rgba(0, 0, 0, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    object-fit: contain;
+}
+
+.team-name {
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #fff 0%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.score-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: var(--border-radius);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.score {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    text-shadow: 0 0 20px rgba(96, 205, 255, 0.3);
+    line-height: 1;
+    margin: 0;
+}
+
+.hits-errors {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.game-status {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+}
+
+.vs-container {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+}
+
+.vs-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.3), transparent);
+}
+
+.vs {
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+.inning-display {
+    background: var(--secondary-bg);
+    padding: 1rem 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.current-inning {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 3px;
+}
+
+.inning-half {
+    color: var(--accent-color);
+    font-size: 1.4rem;
+}
+
+.detailed-status {
+    min-height: 0;
+    display: grid;
+    grid-template-rows: auto 1fr;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.field-status {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.bases-container {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.diamond {
+    width: 70px;
+    height: 70px;
+    position: relative;
+    margin: 25px auto;
+    transform: rotate(0deg);
+}
+
+/* 壘包樣式 */
+.base {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+    border-radius: 4px;  /* 添加圓角 */
+}
+
+/* 壘包位置 */
+.base.first {
+    right: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.base.second {
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.base.third {
+    left: -10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* 壘包激活狀態 */
+.base.active {
+    background: var(--accent-color) !important;
+    border-color: var(--accent-color) !important;
+    box-shadow: 0 0 15px var(--glow-color) !important;
+}
+
+/* 好壞球計數 */
+.count-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    padding: 10px 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.count-row {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.count-label {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: rgba(255, 255, 255, 0.9);
+    width: 60px;
+    text-align: right;
+}
+
+.count-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.dot {
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.dot.active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px var(--glow-color);
+}
+
+.player-info {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+    margin: 0.5rem 0;
+}
+
+.player-card {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.5rem;
+    border-radius: var(--small-radius);
+    height: fit-content;
+}
+
+.player-header {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-bottom: 10px;
+}
+
+.player-card .name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 0.75rem;
+}
+
+.player-card .stats {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    font-size: 1.1rem;
+}
+
+.main-stats {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 8px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.today-stats, .vs-pitcher {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+@keyframes pulse {
+    0% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.8; transform: scale(0.98); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes dotGlow {
+    0% { opacity: 0.8; }
+    50% { opacity: 0.4; }
+    100% { opacity: 0.8; }
+}
+
+/* 好球特殊樣式 */
+.count-s .dot.active {
+    background: var(--strike-color) !important;  /* 使用黃色 */
+    border-color: var(--strike-color) !important;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.3) !important;  /* 黃色光暈 */
+}
+
+/* 移除這些可能造成衝突的樣式 */
+.count-s .dot.active .glow {
+    display: none;  /* 移除額外的發光效果 */
+}
+
+/* 一般的 dot active 樣式不應影響好球 */
+.dot.active {
+    background: var(--accent-color);
+    border-color: var(--accent-color);
+    box-shadow: 0 0 15px var(--glow-color);
+}
+
+/* 出局數特殊樣式保持紅色 */
+.count-o .dot.active {
+    background: #ff4d4d !important;
+    border-color: #ff6666 !important;
+    box-shadow: 0 0 15px rgba(255, 77, 77, 0.3) !important;
+}
+
+@media (max-width: 1200px) {
+    .main-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .team-section {
+        padding: 20px;
+    }
+    
+    .team-logo {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .score {
+        font-size: 3.5rem;
+    }
+    
+    .player-info {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* 修改台灣隊標誌樣式 */
+.away .team-logo {
+    background: rgba(0, 0, 0, 0.3);
+    border-color: rgba(255, 255, 255, 0.15);
+    padding: 1.2rem;
+}
+
+.away .team-logo-container::after {
+    content: '';
+    position: absolute;
+    inset: -5px;
+    border-radius: 26px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), transparent);
+    z-index: -1;
+}
+
+/* 統計資訊容器 */
+.stats-container {
+    margin-top: 15px;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+/* 下一棒資訊 */
+.next-batters {
+    flex: 0 0 auto;
+    min-height: 0;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.5rem;
+    border-radius: var(--border-radius);
+    margin-bottom: 0.75rem;
+}
+
+.next-batters-header {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--accent-color);
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.on-deck, .in-hole {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.next-batters .label {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.next-batters .name {
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.next-batters .avg {
+    color: var(--accent-color);
+}
+
+/* 球場資訊區塊 */
+.stadium-info-section {
+    display: none;
+}
+
+.stadium-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 15px;
+}
+
+.stadium-details {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.stadium-image {
+    flex: 1;
+    min-height: 200px;
+    max-height: 250px;
+    border-radius: var(--small-radius);
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stadium-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.stadium-photo:hover {
+    transform: scale(1.05);
+}
+
+.stadium-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    padding: 15px;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: justify;
+}
+
+/* 中間區域調整 */
+.center-section {
+    height: 100% !important;
+    display: grid !important;
+    grid-template-rows: auto auto 1fr !important;
+    gap: 0.5rem;
+    padding: 0.5rem;
+    align-items: start;
+}
+
+/* 響應式調整 */
+@media (max-width: 1600px) {
+    .main-content {
+        grid-template-columns: 1fr 1.4fr 1fr;
+        gap: 1.5rem;
+    }
+
+    .score {
+        font-size: 5rem;
+    }
+
+    .team-section {
+        padding: 1.5rem;
+    }
+}
+
+/* 新增微光效果 */
+.glow-effect {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 0%, var(--accent-color), transparent 70%);
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+/* 移除內野線 */
+.diamond::before {
+    display: none;
+}
+
+/* 賽事資訊樣式 */
+.tournament-info {
+    display: none;
+}
+
+/* 事件顯示樣式 */
+.game-event {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 1rem;
+    color: var(--accent-color);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* 製作者資訊樣式調整 */
+.credits {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 0.5rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    border-radius: 0 0 var(--border-radius) var(--border-radius);
+    letter-spacing: 0.5px;
+}
+
+.credits a {
+    color: var(--accent-color);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    opacity: 0.8;
+}
+
+.credits a:hover {
+    color: #fff;
+    text-shadow: 0 0 10px var(--accent-color);
+    opacity: 1;
+}
+
+.credits .heart {
+    color: #ff4d4d;
+    animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+/* 改為這個 */
+@media (min-width: 1800px) {
+    .container {
+        max-width: 2000px;  /* 限制最大寬度 */
+        margin: 0 auto;
+    }
+
+    .score-card {
+        margin: 0 auto;
+    }
+
+    /* 調整大螢幕上的字體大小 */
+    .team-name {
+        font-size: 2.2rem;
+    }
+
+    .score {
+        font-size: 4rem;
+    }
+} 
